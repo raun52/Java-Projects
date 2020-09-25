@@ -1,8 +1,5 @@
 /**
  * This class uses an insertion sort in an array and instruments measurement code within sorting methods
- * 
- * @author Raunak Pandey 
- * @version 4/12/2018
  */
 public class SortingSummary
 {   
