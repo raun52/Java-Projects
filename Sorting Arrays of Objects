@@ -1,0 +1,62 @@
+/**
+ * This class sorts arrays of objects.
+ */
+public class MyFriend
+{
+    private String name;
+    private int phoneIndex;
+    private int likability;
+    public MyFriend(String names, int phoneIndexes, int like)
+    {
+        name = names;
+        phoneIndex = phoneIndexes;
+        likability = like;
+    }
+
+    public String toString()
+    {
+        String str = new String();
+        return str = name + "'s  speed dial is " + phoneIndex + " and their likeability is " + likability + "\n";
+    }
+ 
+    public int getLike()
+    {
+        return likability;
+    }
+    public int getPhone()
+    {
+        return phoneIndex;
+    }
+    public String getName()
+    {
+        return name;
+    } 
+}
+
+/**
+ * This class calls the MyFriend class and sorts each friends' phone speed dial index value and their likability.
+ */
+public class 66
+{
+    public void main()
+    {
+        MyFriend [] friends = new MyFriend [10];
+        
+        friends [0] = new MyFriend ("Kirk Cousins", 1, randomInt());
+        friends [1] = new MyFriend ("Dalvin Cook", 2, randomInt());
+        friends [2] = new MyFriend ("Stefon Diggs", 3, randomInt());
+        friends [3] = new MyFriend ("Adam Theilen", 4, randomInt());
+        friends [4] = new MyFriend ("Xavier Rhodes", 5, randomInt());
+        friends [5] = new MyFriend ("Everson Griffen", 6, randomInt());
+        friends [6] = new MyFriend ("Eric Kendricks", 7, randomInt());
+        friends [7] = new MyFriend ("Kyle Rudolph", 8, randomInt());
+        friends [8] = new MyFriend ("Linval Joseph", 9, randomInt());
+        friends [9] = new MyFriend ("Harrison Smith", 10, randomInt());
+    }
+    
+    public static int randomInt()
+    {
+        int rand = (int)(Math.random() * (10 + 1));
+        return rand;
+    }
+}
