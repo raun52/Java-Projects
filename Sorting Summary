@@ -1,0 +1,175 @@
+/**
+ * This class uses an insertion sort in an array and instruments measurement code within sorting methods
+ * 
+ * @author Raunak Pandey 
+ * @version 4/12/2018
+ */
+public class SortingSummary
+{   
+    public static void main()
+    {
+        final int LENGTH = 16;
+        int[] arr = new int[LENGTH];
+        
+        fill(arr);
+        System.out.println("Bubble Sort Up");
+        bubbleSortUp(arr);
+        print(arr);
+        
+        fill(arr);
+        System.out.println("\nBubble Sort Down");
+        bubbleSortDown(arr);
+        print(arr);
+        
+        fill(arr);
+        System.out.println("\nSelection Sort Up");
+        System.out.print("Unsorted: ");
+        print(arr);
+        selectionSortDown(arr);
+        System.out.print("Sorted: ");
+        print(arr);
+        
+        fill(arr);
+        System.out.println("\nSelection Sort Down");
+        System.out.print("Unsorted: ");
+        print(arr);
+        selectionSortDown(arr);
+        System.out.print("Sorted: ");
+        print(arr);
+        
+        fill (arr);
+        System.out.println("\nInsertion Sort Up");
+        System.out.print("Unsorted: ");
+        print(arr);
+        insertionSortUp(arr);
+        System.out.print("Sorted: ");
+        print(arr); 
+    }
+
+    public static int randomInt(int number)
+    {
+        int rand = (int)(Math.random() * (number + 1));
+        return rand;
+    }
+    
+    public static void fill(int [] arr)
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            arr[i] = randomInt(99);
+        }
+    }
+    
+    public static void print(int [] arr)
+    {   
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.print("\n");
+    }
+    
+    public static void bubbleSortUp(int[] arr)
+    {
+        int counter = 0;
+        for(int pass = 0; pass < arr.length - 1; pass++)
+        {
+            counter++;
+            for(int i = 0; i < arr.length - 1; i++)
+            {
+                counter++;
+                int temp = 0;
+                if(arr[i] > arr[i + 1])
+                {
+                    temp = arr[i + 1];
+                    arr[i + 1] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+        System.out.println("Big O Count: " + counter);
+    }
+    
+    public static void  bubbleSortDown(int[] arr)
+    {
+        int counter = 0;
+        for(int pass = 0; pass < arr.length - 1; pass++)
+        {
+            counter++;
+            for(int i = 0; i < arr.length - 1; i++)
+            {
+                counter++;
+                int temp = 0;
+                if(arr[i] < arr[i + 1])
+                {
+                    temp = arr[i + 1];
+                    arr[i + 1] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+        System.out.println("Big O Count: " + counter);
+    }
+       
+    public static void selectionSortUp(int[] arr)
+    {
+        int counter = 0;
+        for(int i = 0; i < arr.length - 1; i++)
+        {
+            counter++;
+            int min = i;
+            for(int j = i + 1; j < arr.length; j++)
+            {
+                counter++;
+                if(arr[min] > arr[j]){
+                    min = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+        System.out.println("Big O Count: " + counter);
+    }
+    
+    public static void selectionSortDown(int[] arr)
+    {
+        int counter = 0;
+        for(int i = 0; i < arr.length - 1; i++)
+        {
+            counter++;
+            int max = i;
+            for(int j = i + 1; j < arr.length; j++)
+            {
+                counter++;
+                if(arr[max] < arr[j])
+                {
+                    max = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[max];
+            arr[max] = temp;
+        }
+        System.out.println("Big O Count: " + counter);
+    }
+    
+    public static void insertionSortUp(int[] array)
+    {
+        int counter = 0;
+        for(int i = 1; i < array.length; i++)
+        {
+            counter++;
+            int j = i;
+            int temp = array[j];
+            while(j > 0 && array[j - 1] > temp)
+            {
+                counter++;
+                array[j] = array[j - 1];
+                j--;
+            }
+            array[j] = temp;
+        }
+        System.out.println("Big O Count: " + counter);
+    }
+}
